@@ -14,7 +14,7 @@ public class checkUsernameServlet extends HttpServlet {
         String username = request.getParameter("username");
         userService userService=new userService();
         if (userService.findUserByUsername(username)!=null){
-            response.getWriter().write("不可以使用");
+            response.getWriter().write("用户名已存在");
         }else {
             response.getWriter().write("可以使用");
         }

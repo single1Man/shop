@@ -3,8 +3,6 @@ function checkUsername(){
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
     const re = /^[a-zA-Z_]{6,18}$/;
-    let flag;
-    flag=false;
     if(username.value===""){
         span.innerHTML="<p style='color: red'>用户名不能为空</p>"
     }
@@ -23,17 +21,17 @@ function checkUsername(){
                 },
                 type:'post',
                 success:function(data) {
-                    $("#span_username").html(data);
+                    if (data==="可以使用"){
+                        span.innerHTML="<p style='color: green'>可以使用</p>"
+                        return true;
+                    }else if (data==="用户名已存在"){
+                        span.innerHTML="<p style='color: red'>用户名已存在</p>"
+                    }
                 }
             });
         })
-        if (span.value==="不可以使用"){
-            span.innerHTML="<p style='color: red'>不可以使用</p>"
-        }else {
-            flag=true;
-        }
     }
-    return flag;
+    return false;
 }
 //密码检查
 function checkPassword(){

@@ -3,8 +3,6 @@ function checkUsername(){
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
     const re = /^[a-zA-Z_]{6,18}$/;
-    let flag;
-    flag=false;
     if(username.value===""){
         span.innerHTML="<p style='color: red'>用户名不能为空</p>"
     }
@@ -14,14 +12,26 @@ function checkUsername(){
     else if(!re.test(username.value)){
         span.innerHTML="<p style='color: red'>只能包含英文字母和下划线</p>"
     }
-    else if (span.value==="不可以使用"){
-        span.innerHTML="<p style='color: red'>不可以使用</p>"
-    }
     else {
-        span.innerHTML = "<p style='color: green'>可以使用</p>"
-        flag=true;
+        $('#username').blur(function(){
+            $.ajax( {
+                url:'checkUsernameServlet',
+                data:{
+                    username : $(this).val()
+                },
+                type:'post',
+                success:function(data) {
+                    if (data==="可以使用"){
+                        span.innerHTML="<p style='color: green'>可以使用</p>"
+                        return true;
+                    }else if (data==="用户名已存在"){
+                        span.innerHTML="<p style='color: red'>用户名已存在</p>"
+                    }
+                }
+            });
+        })
     }
-    return flag;
+    return false;
 }
 //密码检查
 function checkPassword(){
