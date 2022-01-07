@@ -96,7 +96,7 @@
 	<div class="col-md-2"></div>
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
 		<font>用户注册</font>USER REGISTER
-		<form class="form-horizontal" style="margin-top:5px;" action="registerServlet" method="post">
+		<form class="form-horizontal" style="margin-top:5px;" action="registerServlet" method="post" onsubmit="return checkAll()">
 			 <div class="form-group">
 			    <label for="username" class="col-sm-2 control-label" >用户名</label>
 			    <div class="col-sm-6">
@@ -167,16 +167,13 @@
 			 
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <input type="submit"  width="100" value="注册" name="submit" border="0"
-				    style="background: url('./images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+			      	<input type="submit"  width="100" value="注册" name="submit" border="0" style="background: url('./images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 				    height:35px;width:100px;color:white;">
+					<span id="span_form" style="display: inline-block"></span>
 			    </div>
 			  </div>
 			</form>
 	</div>
-	
-	<div class="col-md-2"></div>
-  
 </div>
 </div>
 	<div style="margin-top:50px;">
@@ -201,9 +198,6 @@
 		</div>
 
 	</body>
-<script type="text/javascript">
-
-</script>
 </html>
 
 

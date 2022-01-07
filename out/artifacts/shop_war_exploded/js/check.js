@@ -131,5 +131,12 @@ function checkName(){
 }
 //form表单检查
 function checkAll(){
+    const span=document.getElementById("span_form");
+    if (checkUsername() && checkPassword() && checkConfirmPassword() && checkName() && checkPhone() && checkEmail()){
+        return true;
+    }else {
+        span.innerHTML="<p style='color: red'>请检查上面字段提示</p>"
+        return false;
+    }
 
 }
