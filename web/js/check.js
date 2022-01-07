@@ -121,5 +121,5 @@ function checkName(){
 }
 //form表单检查
 function checkAll(){
-
+//不会
 }
