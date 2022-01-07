@@ -2,7 +2,6 @@
 function checkUsername(){
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
-    // var reN =/^\d{6,18}$/;
     const re = /^[a-zA-Z_]{6,18}$/;
     let flag;
     flag=false;
@@ -43,7 +42,6 @@ function checkPassword(){
     }
     return flag;
 }
-
 //确认密码
 function checkConfirmPassword(){
     let flag;
@@ -82,7 +80,6 @@ function checkPhone(){
     }
     return flag;
 }
-
 //电子邮箱
 function checkEmail(){
     let flag;
