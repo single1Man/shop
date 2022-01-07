@@ -1,6 +1,7 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,9 +12,8 @@
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 
-		<style>
+		<style type="text/css">
 			body {
-				margin-top: 20px;
 				margin: 0 auto;
 				width: 100%;
 			}
@@ -39,9 +39,16 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.jsp">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
+						<c:if test="${username!=null}">
+							<li><p >欢迎<%=session.getAttribute("username") %></p></li>
+							<li><a href="register.jsp">退出登录</a></li>
+							<li><a href="cart.htm">购物车</a></li>
+						</c:if>
+						<c:if test="${username==null}">
+							<li><a href="login.jsp">登录</a></li>
+							<li><a href="register.jsp">注册</a></li>
+							<li><a href="cart.htm">购物车</a></li>
+						</c:if>
 					</ol>
 				</div>
 			</div>
@@ -212,14 +219,14 @@
         -->
 		<div style="width:1210px;margin:0 auto; padding: 0 9px;border: 1px solid #ddd;border-top: 2px solid #999;height: 246px;">
 
-			<h4 style="width: 50%;float: left;font: 14px/30px " 微软雅黑 ";">浏览记录</h4>
+			<h4 style="width: 50%;float: left;font: 14px/30px  微软雅黑 ">浏览记录</h4>
 			<div style="width: 50%;float: right;text-align: right;"><a href="">more</a></div>
 			<div style="clear: both;"></div>
 
 			<div style="overflow: hidden;">
 
 				<ul style="list-style: none;">
-					<li style="width: 150px;height: 216;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="products/1/cs10001.jpg" width="130px" height="130px" /></li>
+					<li style="width: 150px;height: 216px;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="products/1/cs10001.jpg" width="130px" height="130px" /></li>
 				</ul>
 
 			</div>
