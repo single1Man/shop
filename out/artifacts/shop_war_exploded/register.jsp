@@ -174,9 +174,6 @@
 			  </div>
 			</form>
 	</div>
-	
-<%--	<div class="col-md-2"></div>--%>
-  
 </div>
 </div>
 	<div style="margin-top:50px;">
@@ -201,9 +198,6 @@
 		</div>
 
 	</body>
-<script type="text/javascript">
-
-</script>
 </html>
 
 

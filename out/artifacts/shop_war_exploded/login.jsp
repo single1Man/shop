@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8"  content=""/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>会员登录</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
@@ -11,10 +11,9 @@
 <!-- 引入自定义css文件 style.css -->
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
 
-<style>
+<style type="text/css">
   body{
-   margin-top:20px;
-   margin:0 auto;
+	  margin:0 auto;
  }
  .carousel-inner .item img{
 	 width:100%;
@@ -34,10 +33,7 @@ font {
  </style>
 </head>
 <body>
-	
-	
-	
-	
+
 			<!--
             	时间：2015-12-30
             	描述：菜单栏
@@ -51,7 +47,7 @@ font {
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
+						<li><a href="login.jsp">登录</a></li>
 						<li><a href="register.jsp">注册</a></li>
 						<li><a href="cart.htm">购物车</a></li>
 					</ol>
@@ -111,22 +107,23 @@ font {
 	
 	<div class="col-md-5">
 				<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
-				<font>会员登录</font>USER LOGIN
+				<font>用户登录</font>USER LOGIN
 
 				<div>&nbsp;</div>
-<form class="form-horizontal" action="/LogingServlet">
-  
+<form class="form-horizontal" action="loginServlet" method="post">
  <div class="form-group">
     <label for="username" class="col-sm-2 control-label">用户名</label>
     <div class="col-sm-6">
       <input type="text" class="form-control"  name="username" id="username" placeholder="请输入用户名">
     </div>
+	 <span>${noUserMsg}</span>
   </div>
    <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+    <label for="password" class="col-sm-2 control-label">密码</label>
     <div class="col-sm-6">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+      <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
     </div>
+	   <span>${passwordError}</span>
   </div>
    <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
