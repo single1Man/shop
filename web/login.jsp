@@ -134,7 +134,7 @@ font {
       <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
     </div>
     <div class="col-sm-3">
-      <img src="./image/captcha.jhtml"/>
+      <img src="image/captcha.html"/>
     </div>
     
   </div>

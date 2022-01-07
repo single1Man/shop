@@ -2,7 +2,6 @@
 function checkUsername(){
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
-    // var reN =/^\d{6,18}$/;
     const re = /^[a-zA-Z_]{6,18}$/;
     let flag;
     flag=false;
@@ -15,8 +14,11 @@ function checkUsername(){
     else if(!re.test(username.value)){
         span.innerHTML="<p style='color: red'>只能包含英文字母和下划线</p>"
     }
+    else if (span.value==="不可以使用"){
+        span.innerHTML="<p style='color: red'>不可以使用</p>"
+    }
     else {
-        span.innerHTML="<p style='color: green'>正确</p>"
+        span.innerHTML = "<p style='color: green'>可以使用</p>"
         flag=true;
     }
     return flag;
@@ -43,7 +45,6 @@ function checkPassword(){
     }
     return flag;
 }
-
 //确认密码
 function checkConfirmPassword(){
     let flag;
@@ -82,7 +83,6 @@ function checkPhone(){
     }
     return flag;
 }
-
 //电子邮箱
 function checkEmail(){
     let flag;

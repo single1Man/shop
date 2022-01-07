@@ -3,53 +3,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8"  content=""/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>会员登录</title>
+		<title>用户注册</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript"></script>
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="css/style.css" type="text/css"/>
 		<script type="text/javascript" src="js/check.js"></script>
+		<style type="text/css">
+			body{
+				margin: 0 auto;
+			}
+			.carousel-inner .item img{
+				width:100%;
+				height:300px;
+			}
+			.container .row div{
+				/* position:relative;
+                float:left; */
+			}
+			font {
+				color: #3164af;
+				font-size: 18px;
+				font-weight: normal;
+				padding: 0 10px;
+			}
+		</style>
 	</head>
-<style>
-  body{
-   margin-top:20px;
-   margin:0 auto;
- }
- .carousel-inner .item img{
-	 width:100%;
-	 height:300px;
- }
- .container .row div{ 
-	 /* position:relative;
-	 float:left; */
- }
- 
-font {
-    color: #3164af;
-    font-size: 18px;
-    font-weight: normal;
-    padding: 0 10px;
-}
- </style>
-</head>
-<body>
-
-
-
-
+	<body>
 			<!--
             	时间：2015-12-30
-            	描述：菜单栏
-            -->
+            	描述：菜单栏-->
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<img src="img/logo2.png" />
+					<img src="img/logo2.png"  alt=""/>
 				</div>
 				<div class="col-md-5">
-					<img src="img/header.png" />
+					<img src="img/header.png"  alt=""/>
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
@@ -85,7 +77,7 @@ font {
 								<li><a href="#">电脑办公</a></li>
 								<li><a href="#">电脑办公</a></li>
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="" method="post">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Search">
 								</div>
@@ -99,91 +91,78 @@ font {
 				</nav>
 			</div>
 
-
-
-
-
 <div class="container" style="width:100%;background:url('image/regist_bg.jpg');">
-<div class="row"> 
-
+<div class="row">
 	<div class="col-md-2"></div>
-	
-	
-
-
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
-		<font>会员注册</font>USER REGISTER
-		<form class="form-horizontal" style="margin-top:5px;">
+		<font>用户注册</font>USER REGISTER
+		<form class="form-horizontal" style="margin-top:5px;" action="registerServlet" method="post">
 			 <div class="form-group">
 			    <label for="username" class="col-sm-2 control-label" >用户名</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="username" placeholder="请输入用户名" onblur="checkUsername()" onkeyup="checkUsername()">
+			      <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" onblur="checkUsername()" onkeyup="checkUsername()">
 			    </div>
 				 <span id="span_username"></span>
 			  </div>
 			   <div class="form-group">
 			    <label for="password" class="col-sm-2 control-label">密码</label>
 			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="password" placeholder="请输入密码" onblur="checkPassword()" onkeyup="checkPassword()">
+			      <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" onblur="checkPassword()" onkeyup="checkPassword()">
 			    </div>
 				   <span id="span_password"></span>
 			  </div>
 			   <div class="form-group">
 			    <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
 			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="confirmPassword" placeholder="请输入确认密码" onblur="checkConfirmPassword()" onkeyup="checkConfirmPassword()">
+			      <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="请输入确认密码" onblur="checkConfirmPassword()" onkeyup="checkConfirmPassword()">
 			    </div>
 				   <span id="span_confirmPassword"></span>
 			  </div>
 			<div class="form-group">
 				<label for="phone" class="col-sm-2 control-label">联系电话</label>
 				<div class="col-sm-6">
-					<input type="password" class="form-control" id="phone" placeholder="请输入联系电话" onblur="checkPhone()" onkeyup="checkPhone()">
+					<input type="text" class="form-control" name="telephone" id="phone" placeholder="请输入联系电话" onblur="checkPhone()" onkeyup="checkPhone()">
 				</div>
 				<span id="span_phone"></span>
 			</div>
 			  <div class="form-group">
 			    <label for="email" class="col-sm-2 control-label">Email</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="email" placeholder="Email" onkeyup="checkEmail()" onblur="checkEmail()">
+			      <input type="text" class="form-control" id="email" name="email" placeholder="Email" onkeyup="checkEmail()" onblur="checkEmail()">
 			    </div>
 				  <span id="span_email"></span>
 			  </div>
 			 <div class="form-group">
 			    <label for="name" class="col-sm-2 control-label">姓名</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="name" placeholder="请输入姓名" onblur="checkName()" onkeyup="checkName()">
+			      <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名" onblur="checkName()" onkeyup="checkName()">
 			    </div>
 				 <span id="span_name"></span>
 			  </div>
 			  <div class="form-group opt">  
-			  <label for="inlineRadio1" class="col-sm-2 control-label" required="required" >性别</label>
-			  <div class="col-sm-6">
-			    <label class="radio-inline">
-			  <input type="radio" name="sex" id="inlineRadio1" value="option1"> 男
-			</label>
-			<label class="radio-inline">
-			  <input type="radio" name="sex" id="inlineRadio2" value="option2"> 女
-			</label>
-			</div>
-			  </div>		
+			  <label for="inlineRadio1" class="col-sm-2 control-label">性别</label>
+				  <label class="radio-inline">
+					  <input type="radio" name="sex" id="inlineRadio1" value="男" required="required"> 男
+				  </label>
+				  <label class="radio-inline">
+					  <input type="radio" name="sex" id="inlineRadio2" value="女"> 女
+				  </label>
+			  </div>
 			  <div class="form-group">
-			    <label for="date" class="col-sm-2 control-label" required="required" >出生日期</label>
+			    <label for="date" class="col-sm-2 control-label">出生日期</label>
 			    <div class="col-sm-6">
-			      <input type="date" class="form-control" id="date" >
+			      <input type="date" class="form-control" id="date" name="birthday" required="required">
 			    </div>
 			  </div>
 			  
 			  <div class="form-group">
-			    <label for="date" class="col-sm-2 control-label" required="required" >验证码</label>
+			    <label for="code" class="col-sm-2 control-label">验证码</label>
 			    <div class="col-sm-3">
-			      <input type="text" class="form-control"  >
-			      
+			      <input type="text" class="form-control" required="required" id="code" name="code">
 			    </div>
 			    <div class="col-sm-2">
-			    <img src="./image/captcha.jhtml"/>
+			    <img src="${pageContext.request.contextPath}/image/captcha.html" alt=""/>
 			    </div>
-			    
 			  </div>
 			 
 			  <div class="form-group">
@@ -200,9 +179,6 @@ font {
   
 </div>
 </div>
-
-	  
-	
 	<div style="margin-top:50px;">
 			<img src="./image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
 		</div>
@@ -224,7 +200,22 @@ font {
 			Copyright &copy; 2005-2016 成信大商城 版权所有
 		</div>
 
-</body></html>
+	</body>
+<script type="text/javascript">
+	$('#username').blur(function(){
+		$.ajax( {
+			url:'checkUsernameServlet',// 跳转到 action
+			data:{
+				username : $(this).val()
+			},
+			type:'post',
+			success:function(data) {
+				$("#span_username").html(data);
+			}
+		});
+	})
+</script>
+</html>
 
 
 

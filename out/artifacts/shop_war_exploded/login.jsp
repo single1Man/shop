@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -135,7 +134,7 @@ font {
       <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
     </div>
     <div class="col-sm-3">
-      <img src="./image/captcha.jhtml"/>
+      <img src="image/captcha.html"/>
     </div>
     
   </div>

@@ -67,5 +67,21 @@
         <servlet-name>deleteProductsServlet</servlet-name>
         <url-pattern>/deleteProductsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>registerServlet</servlet-name>
+        <servlet-class>com.servlet.registerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registerServlet</servlet-name>
+        <url-pattern>/registerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>checkUsernameServlet</servlet-name>
+        <servlet-class>com.servlet.checkUsernameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkUsernameServlet</servlet-name>
+        <url-pattern>/checkUsernameServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
