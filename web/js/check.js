@@ -14,12 +14,24 @@ function checkUsername(){
     else if(!re.test(username.value)){
         span.innerHTML="<p style='color: red'>只能包含英文字母和下划线</p>"
     }
-    else if (span.value==="不可以使用"){
-        span.innerHTML="<p style='color: red'>不可以使用</p>"
-    }
     else {
-        span.innerHTML = "<p style='color: green'>可以使用</p>"
-        flag=true;
+        $('#username').blur(function(){
+            $.ajax( {
+                url:'checkUsernameServlet',
+                data:{
+                    username : $(this).val()
+                },
+                type:'post',
+                success:function(data) {
+                    $("#span_username").html(data);
+                }
+            });
+        })
+        if (span.value==="不可以使用"){
+            span.innerHTML="<p style='color: red'>不可以使用</p>"
+        }else {
+            flag=true;
+        }
     }
     return flag;
 }

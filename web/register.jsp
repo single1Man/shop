@@ -202,18 +202,7 @@
 
 	</body>
 <script type="text/javascript">
-	$('#username').blur(function(){
-		$.ajax( {
-			url:'checkUsernameServlet',// 跳转到 action
-			data:{
-				username : $(this).val()
-			},
-			type:'post',
-			success:function(data) {
-				$("#span_username").html(data);
-			}
-		});
-	})
+
 </script>
 </html>
 
