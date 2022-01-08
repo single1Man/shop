@@ -20,7 +20,6 @@ public class registerServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         userService userService=new userService();
-        System.out.println("hello");
         User user=new User();
         Map<String, String[]> parameterMap = request.getParameterMap();
         String confirmPassword=request.getParameter("confirmPassword");

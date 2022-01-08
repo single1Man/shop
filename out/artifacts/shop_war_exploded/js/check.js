@@ -1,7 +1,12 @@
 //用户名检查
+var checkUsernameFlag;
+var checkPasswordFlag;
+var checkConfirmPasswordFlag;
+var checkPhoneFlag;
+var checkEmailFlag;
+var  checkNameFlag;
 function checkUsername(){
-    let flag;
-    flag=false;
+    checkUsernameFlag=false;
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
     const re = /^[a-zA-Z_]{6,18}$/;
@@ -24,7 +29,7 @@ function checkUsername(){
                 type:'post',
                 success:function(data) {
                     if (data==="可以使用"){
-                        flag=true;
+                        checkUsernameFlag=true;
                         span.innerHTML="<p style='color: green'>可以使用</p>"
                     }else if (data==="用户名已存在"){
                         span.innerHTML="<p style='color: red'>用户名已存在</p>"
@@ -33,12 +38,10 @@ function checkUsername(){
             });
         })
     }
-    return flag;
 }
 //密码检查
 function checkPassword(){
-    let flag;
-    flag=false;
+    checkPasswordFlag=false;
     const password = document.getElementById("password");
     const re = /^(?=.*\d)(?=.*[a-zA-Z])[\da-zA-Z]{6,}$/;
     const span=document.getElementById("span_password");
@@ -53,14 +56,12 @@ function checkPassword(){
     }
     else {
         span.innerHTML="<p style='color: green'>密码可用</p>"
-        flag=true;
+        checkPasswordFlag=true;
     }
-    return flag;
 }
 //确认密码
 function checkConfirmPassword(){
-    let flag;
-    flag=false;
+    checkConfirmPasswordFlag=false;
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirmPassword");
     const span=document.getElementById("span_confirmPassword");
@@ -72,14 +73,12 @@ function checkConfirmPassword(){
     }
     else {
         span.innerHTML="<p style='color: green'>密码一致</p>"
-        flag=true;
+        checkConfirmPasswordFlag=true;
     }
-    return flag;
 }
 //联系电话
 function checkPhone(){
-    let flag;
-    flag=false;
+    checkPhoneFlag=false;
     const phone = document.getElementById("phone");
     const re = /^1\d{10}$/;
     const span=document.getElementById("span_phone");
@@ -91,14 +90,12 @@ function checkPhone(){
     }
     else {
         span.innerHTML="<p style='color: green'>正确</p>"
-        flag=true;
+        checkPhoneFlag=true;
     }
-    return flag;
 }
 //电子邮箱
 function checkEmail(){
-    let flag;
-    flag=false;
+    checkEmailFlag=false;
     const email = document.getElementById("email");
     const re = /[a-zA-Z0-9]{1,10}@[a-zA-Z0-9]{1,5}\.[a-zA-Z0-9]{1,5}/;
     const span=document.getElementById("span_email")
@@ -110,13 +107,11 @@ function checkEmail(){
     }
     else {
         span.innerHTML="<p style='color: green'>邮箱可用</p>"
-        flag=true;
+        checkEmailFlag=true;
     }
-    return flag;
 }
 function checkName(){
-    let flag;
-    flag=false;
+    checkNameFlag=false;
     const name=document.getElementById("name");
     const span=document.getElementById("span_name");
     const re = /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/;
@@ -127,14 +122,13 @@ function checkName(){
         span.innerHTML="<p style='color: red'>不合法的姓名</p>"
     }else {
         span.innerHTML="<p style='color: green'>可以使用</p>"
-        flag=true;
+        checkNameFlag=true;
     }
-    return flag;
 }
 //form表单检查
 function checkAll(){
     const span=document.getElementById("span_form");
-    if (checkUsername && checkPassword && checkConfirmPassword && checkName && checkPhone && checkEmail){
+    if(checkUsernameFlag && checkPasswordFlag && checkConfirmPasswordFlag && checkPhoneFlag && checkEmailFlag && checkNameFlag){
         return true;
     }else {
         span.innerHTML="<p style='color: red'>请检查上面字段提示</p>"
