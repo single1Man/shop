@@ -37,7 +37,6 @@ public class conditionQueryServlet extends HttpServlet {
         request.setAttribute("pageBean",pageBean);
         request.setAttribute("cid",cid);
         request.setAttribute("pname",pname);
-        System.out.println(pageBean);
         request.getRequestDispatcher("/product_list.jsp").forward(request,response);
     }
 

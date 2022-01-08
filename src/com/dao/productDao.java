@@ -8,7 +8,6 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 public class productDao {
@@ -93,8 +92,7 @@ public class productDao {
     }
     public List<Product> findAll(String condition,Object[] params){
         String sql="select *from product where 1=1 " +condition +" limit ?,?";
-        System.out.println(sql);
-        System.out.println(Arrays.toString(params));
+
         List<Product> list =null;
         try {
             list = qr.query(sql, new BeanListHandler<>(Product.class),params);
@@ -106,8 +104,6 @@ public class productDao {
 
     public Integer findProductCountByCondition(String condition, Object[] params1) {
         String sql="select count(*) from product where 1=1 "+condition;
-        System.out.println(sql);
-        System.out.println(Arrays.toString(params1));
         Long count=0L;
         try {
             count = qr.query(sql, new ScalarHandler<>(),params1);
