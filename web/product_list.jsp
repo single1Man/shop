@@ -73,21 +73,30 @@
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+						<form action="conditionQueryServlet" method="post">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
+									<li><a href="#">电脑办公</a></li>
+									<li><a href="#">电脑办公</a></li>
+									<li><a href="#">电脑办公</a></li>
+								</ul>
+								<div class="navbar-form navbar-left" >
+									<select name="cid" style="margin-top:10px">
+										<option value="">${}</option>
+										<c:forEach items="${allCategory}" var="c">
+											<option ${product.cid==c.cid?"selected='selected'":"" } value="${c.cid }">${c.cname }</option>
+										</c:forEach>
+									</select>
 								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
+								<div class="navbar-form navbar-right" role="search">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Search">
+									</div>
+									<button type="submit" class="btn btn-default">Submit</button>
+								</div>
+							</div>
+						</form>
 						<!-- /.navbar-collapse -->
 					</div>
 					<!-- /.container-fluid -->
@@ -101,118 +110,59 @@
 					<li><a href="#">首页</a></li>
 				</ol>
 			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10001.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>冬瓜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10002.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>圆白菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10003.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>甜玉米</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10004.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>胡萝卜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10005.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>芹菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10006.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>韭菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-		</div>
-
-		<!--分页 -->
-		<div style="width:380px;margin:0 auto;margin-top:50px;">
-			<ul class="pagination" style="text-align:center; margin-top:10px;">
-				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">6</a></li>
-				<li><a href="#">7</a></li>
-				<li><a href="#">8</a></li>
-				<li><a href="#">9</a></li>
-				<li>
-					<a href="#" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
+			<c:forEach items="${pageBean.data }" var="product">
+				<div class="col-md-2">
+					<a href="product_info.htm">
+						<img src="${pageContext.request.contextPath }/${product.pimage }" width="170" height="170" style="display: inline-block;">
 					</a>
-				</li>
-			</ul>
+					<p><a href="product_info.html" style='color:green'>${product.pname}</a></p>
+					<p><font color="#FF0000">商城价：&yen;${product.shop_price}</font></p>
+				</div>
+			</c:forEach>
+		</div>
+		<!--分页 -->
+		<div style="width:380px;margin: 50px auto 0;">
+			<nav aria-label="Page navigation">
+				<ul class="pagination">
+					<c:if test="${pageBean.pageNumber>1}">
+						<li >
+							<a href="${pageContext.request.contextPath  }/conditionQueryServlet?pageNumber=${pageBean.pageNumber-1}&cid=${cid}&pname=${pname}" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+					</c:if>
+					<c:if test="${pageBean.pageNumber<=1}">
+						<li class="disabled">
+							<a href="#" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+					</c:if>
+					<c:forEach begin="1" end="${pageBean.totalPage }" var="i">
+						<c:if test="${pageBean.pageNumber==i}">
+							<li  class="active"><a href="${pageContext.request.contextPath  }/conditionQueryServlet?pageNumber=${i}&cid=${cid}&pname=${pname}">${i }</a></li>
+						</c:if>
+						<c:if test="${pageBean.pageNumber!=i}">
+							<li><a href="${pageContext.request.contextPath  }/conditionQueryServlet?pageNumber=${i}&cid=${cid}&pname=${pname}">${i }</a></li>
+						</c:if>
+					</c:forEach>
+					<c:if test="${pageBean.pageNumber<pageBean.totalPage}">
+						<li>
+							<a href="${pageContext.request.contextPath  }/conditionQueryServlet?pageNumber=${pageBean.pageNumber+1}&cid=${cid}&pname=${pname}" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</c:if>
+					<c:if test="${pageBean.pageNumber>=pageBean.totalPage}">
+						<li class="disabled">
+							<a href="#" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</c:if>
+				</ul>
+				第${pageBean.pageNumber}/${pageBean.totalPage}页
+			</nav>
 		</div>
 			<!-- 分页结束=======================        -->
 

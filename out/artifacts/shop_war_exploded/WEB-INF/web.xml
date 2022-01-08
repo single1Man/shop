@@ -91,5 +91,21 @@
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>conditionQueryServlet</servlet-name>
+        <servlet-class>com.servlet.conditionQueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>conditionQueryServlet</servlet-name>
+        <url-pattern>/conditionQueryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>findAllCategoryServlet</servlet-name>
+        <servlet-class>com.servlet.findAllCategoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>findAllCategoryServlet</servlet-name>
+        <url-pattern>/findAllCategoryServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

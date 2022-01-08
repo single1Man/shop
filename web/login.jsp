@@ -81,9 +81,9 @@ font {
 								<li><a href="#">电脑办公</a></li>
 								<li><a href="#">电脑办公</a></li>
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="conditionQueryServlet" method="post">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+									<input type="text" class="form-control" placeholder="Search" name="pname">
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>

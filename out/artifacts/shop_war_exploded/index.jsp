@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="">
 	<head>
 		<meta charset="utf-8" />
@@ -7,6 +9,12 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			const list = "${allCategory}";
+			if(list.length===0){
+				location.href="${pageContext.request.contextPath}/findAllCategoryServlet";
+			}
+		</script>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -49,22 +57,32 @@
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="product_list.jsp">手机数码<span class="sr-only">(current)</span></a>
-                                </li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+						<form action="conditionQueryServlet" method="post">
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active">
+										<a href="product_list.jsp">手机数码<span class="sr-only">(current)</span></a>
+									</li>
+									<li><a href="#">电脑办公</a></li>
+									<li><a href="#">电脑办公</a></li>
+									<li><a href="#">电脑办公</a></li>
+								</ul>
+								<div class="navbar-form navbar-left" >
+									<select name="cid" style="margin-top:10px">
+										<option value="">--选择已经有的分类--</option>
+										<c:forEach items="${allCategory}" var="c">
+											<option ${product.cid==c.cid?"selected='selected'":"" } value="${c.cid }">${c.cname }</option>
+										</c:forEach>
+									</select>
 								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
+								<div class="navbar-form navbar-right" role="search" >
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Search" name="pname">
+									</div>
+									<button type="submit" class="btn btn-default">Submit</button>
+								</div>
+							</div>
+						</form>
 						<!-- /.navbar-collapse -->
 					</div>
 					<!-- /.container-fluid -->

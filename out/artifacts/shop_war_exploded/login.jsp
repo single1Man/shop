@@ -2,27 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		<meta charset="utf-8"  content=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>会员登录</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<!-- 引入自定义css文件 style.css -->
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<meta charset="utf-8" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>会员登录</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- 引入自定义css文件 style.css -->
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
 
-<style type="text/css">
-  body{
-	  margin:0 auto;
- }
- .carousel-inner .item img{
-	 width:100%;
-	 height:300px;
- }
- .container .row div{ 
-	 /* position:relative;
-	 float:left; */
- }
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+		}
+
+		.carousel-inner .item img {
+			width: 100%;
+			height: 300px;
+		}
+
+		.container .row div {
+			/* position:relative;
+            float:left; */
+		}
  
 font {
     color: #666;
@@ -40,10 +42,10 @@ font {
             -->
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<img src="img/logo2.png" />
+					<img src="img/logo2.png"/>
 				</div>
 				<div class="col-md-5">
-					<img src="img/header.png" />
+					<img src="img/header.png"/>
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
@@ -79,9 +81,9 @@ font {
 								<li><a href="#">电脑办公</a></li>
 								<li><a href="#">电脑办公</a></li>
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="conditionQueryServlet" method="post">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+									<input type="text" class="form-control" placeholder="Search" name="pname">
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>
@@ -93,48 +95,47 @@ font {
 				</nav>
 			</div>
 
-	
-	
-	
-	
-	
-	
-<div class="container"  style="width:100%;height:460px;background:#FF2C4C url('images/loginbg.jpg') no-repeat;">
-<div class="row"> 
-	<div class="col-md-7">
-		<!--<img src="./image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
-	</div>
-	
-	<div class="col-md-5">
-				<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
-				<font>用户登录</font>USER LOGIN
 
-				<div>&nbsp;</div>
-<form class="form-horizontal" action="loginServlet" method="post">
- <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">用户名</label>
-    <div class="col-sm-6">
-      <input type="text" class="form-control"  name="username" id="username" placeholder="请输入用户名">
-    </div>
-	 <span>${noUserMsg}</span>
-  </div>
-   <div class="form-group">
-    <label for="password" class="col-sm-2 control-label">密码</label>
-    <div class="col-sm-6">
-      <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
-    </div>
-	   <span>${passwordError}</span>
-  </div>
-   <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
-    </div>
-    <div class="col-sm-3">
-      <img src="image/captcha.html"/>
-    </div>
-    
-  </div>
+			<div class="container"
+				 style="width:100%;height:460px;background:#FF2C4C url('images/loginbg.jpg') no-repeat;">
+				<div class="row">
+					<div class="col-md-7">
+						<!--<img src="./image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
+					</div>
+
+					<div class="col-md-5">
+						<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
+							<font>用户登录</font>USER LOGIN
+
+							<div>&nbsp;</div>
+							<form class="form-horizontal" action="loginServlet" method="post">
+								<div class="form-group">
+									<label for="username" class="col-sm-2 control-label">用户名</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" name="username" id="username"
+											   placeholder="请输入用户名">
+									</div>
+									<span>${noUserMsg}</span>
+								</div>
+								<div class="form-group">
+									<label for="password" class="col-sm-2 control-label">密码</label>
+									<div class="col-sm-6">
+										<input type="password" class="form-control" name="password" id="password"
+											   placeholder="请输入密码">
+									</div>
+									<span>${passwordError}</span>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="inputPassword3"
+											   placeholder="请输入验证码">
+									</div>
+									<div class="col-sm-3">
+										<img src="image/captcha.html"/>
+									</div>
+
+								</div>
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
