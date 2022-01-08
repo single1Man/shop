@@ -11,7 +11,12 @@
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 	<!-- 引入自定义css文件 style.css -->
 	<link rel="stylesheet" href="css/style.css" type="text/css"/>
-
+	<script type="text/javascript">
+		const list = "${pageBean}";
+		if(list.length===0){
+			location.href="${pageContext.request.contextPath}/conditionQueryServlet?pageNumber=1";
+		}
+	</script>
 	<style type="text/css">
 		body {
 			margin: 0 auto;
@@ -40,13 +45,13 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<c:if test="${username!=null}">
-							<li><p>欢迎<%=session.getAttribute("username")%>
+						<c:if test="${user!=null}">
+							<li><p>欢迎${user.username}
 							</p></li>
-							<li><a href="register.jsp">退出登录</a></li>
+							<li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
 							<li><a href="cart.htm">购物车</a></li>
 						</c:if>
-						<c:if test="${username==null}">
+						<c:if test="${user==null}">
 							<li><a href="login.jsp">登录</a></li>
 							<li><a href="register.jsp">注册</a></li>
 							<li><a href="cart.htm">购物车</a></li>
@@ -83,7 +88,7 @@
 								</ul>
 								<div class="navbar-form navbar-left" >
 									<select name="cid" style="margin-top:10px">
-										<option value="">${}</option>
+										<option value="">--选择已经有的分类--</option>
 										<c:forEach items="${allCategory}" var="c">
 											<option ${product.cid==c.cid?"selected='selected'":"" } value="${c.cid }">${c.cname }</option>
 										</c:forEach>
@@ -91,7 +96,7 @@
 								</div>
 								<div class="navbar-form navbar-right" role="search">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Search">
+										<input type="text" class="form-control" placeholder="Search" name="pname">
 									</div>
 									<button type="submit" class="btn btn-default">Submit</button>
 								</div>

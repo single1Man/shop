@@ -107,5 +107,13 @@
         <servlet-name>findAllCategoryServlet</servlet-name>
         <url-pattern>/findAllCategoryServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>loginOutServlet</servlet-name>
+        <servlet-class>com.servlet.loginOutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginOutServlet</servlet-name>
+        <url-pattern>/loginOutServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

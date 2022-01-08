@@ -5,11 +5,12 @@ import com.service.userService;
 import com.utils.checkUserUtils;
 import org.apache.commons.beanutils.BeanUtils;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class registerServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         userService userService=new userService();
+        System.out.println("hello");
         User user=new User();
         Map<String, String[]> parameterMap = request.getParameterMap();
         String confirmPassword=request.getParameter("confirmPassword");

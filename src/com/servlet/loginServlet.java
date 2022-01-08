@@ -4,10 +4,7 @@ import com.pojo.User;
 import com.service.userService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 public class loginServlet extends HttpServlet {
@@ -17,12 +14,29 @@ public class loginServlet extends HttpServlet {
         response.setContentType("text/html:charset=utf-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String rememberUsername=request.getParameter("rememberUsername");
         userService userService = new userService();
         User user = userService.findUserByUsername(username);
         if (user != null) {
             if (password.equals(user.getPassword())) {
+                //登陆成功
+                //自动登录开始
+                String autoLogin = request.getParameter("autoLogin");
+                if(autoLogin!=null){
+                    //使用cookie记录用户信息,使用@拼凑
+                    Cookie c=new Cookie("autoLoginCookie",username+"@"+password);
+                    c.setPath("/");
+                    c.setMaxAge(30);
+                    response.addCookie(c);
+                }
+                if ("on".equals(rememberUsername)){
+                    Cookie rememberUsernameCookie=new Cookie("rememberUsernameCookie",username);
+                    rememberUsernameCookie.setPath("/");
+                    rememberUsernameCookie.setMaxAge(30);
+                    response.addCookie(rememberUsernameCookie);
+                }
                 HttpSession session = request.getSession();
-                session.setAttribute("username", username);
+                session.setAttribute("user", user);
                 response.sendRedirect("product_list.jsp");
             } else {
                 request.setAttribute("passwordError", "密码错误");

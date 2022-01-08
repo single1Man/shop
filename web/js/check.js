@@ -1,5 +1,7 @@
 //用户名检查
 function checkUsername(){
+    let flag;
+    flag=false;
     const username = document.getElementById("username");
     const span=document.getElementById("span_username");
     const re = /^[a-zA-Z_]{6,18}$/;
@@ -22,8 +24,8 @@ function checkUsername(){
                 type:'post',
                 success:function(data) {
                     if (data==="可以使用"){
+                        flag=true;
                         span.innerHTML="<p style='color: green'>可以使用</p>"
-                        return true;
                     }else if (data==="用户名已存在"){
                         span.innerHTML="<p style='color: red'>用户名已存在</p>"
                     }
@@ -31,7 +33,7 @@ function checkUsername(){
             });
         })
     }
-    return false;
+    return flag;
 }
 //密码检查
 function checkPassword(){
@@ -132,11 +134,10 @@ function checkName(){
 //form表单检查
 function checkAll(){
     const span=document.getElementById("span_form");
-    if (checkUsername() && checkPassword() && checkConfirmPassword() && checkName() && checkPhone() && checkEmail()){
+    if(checkUsername && checkPassword && checkConfirmPassword && checkName && checkPhone && checkEmail){
         return true;
     }else {
         span.innerHTML="<p style='color: red'>请检查上面字段提示</p>"
         return false;
     }
-
 }

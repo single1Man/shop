@@ -21,8 +21,8 @@ public class userDao {
     }
 
     public int register(User user) {
-        String sql="insert into user values(?,?,?,?,?,?,?,?,?,?)";
-        Object[] params={user.getUid(),user.getUsername(),user.getPassword(),user.getName(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex(),user.getState(),user.getCode()};
+        String sql="insert into user values(?,?,?,?,?,?,?,?,?,?,?)";
+        Object[] params={user.getUid(),user.getUsername(),user.getPassword(),user.getName(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex(),user.getState(),user.getCode(),"1,2,3"};
         try {
             return qr.update(sql,params);
         } catch (SQLException e) {

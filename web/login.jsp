@@ -113,7 +113,7 @@ font {
 									<label for="username" class="col-sm-2 control-label">用户名</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" name="username" id="username"
-											   placeholder="请输入用户名">
+											   placeholder="请输入用户名" value="${username}">
 									</div>
 									<span>${noUserMsg}</span>
 								</div>
@@ -140,10 +140,10 @@ font {
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
-          <input type="checkbox"> 自动登录
+          <input type="checkbox" name="autoLogin"> 自动登录
         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label>
-          <input type="checkbox"> 记住用户名
+          <input type="checkbox" name="rememberUsername"> 记住用户名
         </label>
       </div>
     </div>
