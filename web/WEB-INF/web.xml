@@ -115,5 +115,37 @@
         <servlet-name>loginOutServlet</servlet-name>
         <url-pattern>/loginOutServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>toProductInfoServlet</servlet-name>
+        <servlet-class>com.servlet.toProductInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>toProductInfoServlet</servlet-name>
+        <url-pattern>/toProductInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>scProductServlet</servlet-name>
+        <servlet-class>com.servlet.scProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>scProductServlet</servlet-name>
+        <url-pattern>/scProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>findCollectsByUsernameServlet</servlet-name>
+        <servlet-class>com.servlet.findCollectsByUsernameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>findCollectsByUsernameServlet</servlet-name>
+        <url-pattern>/findCollectsByUsernameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>commentServlet</servlet-name>
+        <servlet-class>com.servlet.commentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commentServlet</servlet-name>
+        <url-pattern>/commentServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

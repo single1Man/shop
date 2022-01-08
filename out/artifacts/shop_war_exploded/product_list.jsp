@@ -22,7 +22,6 @@
 			margin: 0 auto;
 			width: 100%;
 		}
-
 		.carousel-inner .item img {
 			width: 100%;
 			height: 300px;
@@ -35,7 +34,7 @@
 			<!--
             	时间：2015-12-30
             	描述：菜单栏
-            -->
+            	-->
 			<div class="container-fluid">
 				<div class="col-md-4">
 					<img src="img/logo2.png"/>
@@ -50,6 +49,7 @@
 							</p></li>
 							<li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
 							<li><a href="cart.htm">购物车</a></li>
+							<button data-toggle="modal" data-target="#myModal">${user.username}的优惠卷</button>
 						</c:if>
 						<c:if test="${user==null}">
 							<li><a href="login.jsp">登录</a></li>
@@ -58,6 +58,27 @@
 						</c:if>
 					</ol>
 				</div>
+			</div>
+			<%--优惠卷模态框--%>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">优惠卷</h4>
+						</div>
+						<div class="modal-body">
+							<c:forEach items="${coupons}" var="coupon">
+								<p>${coupon.coupon}</p>
+							</c:forEach>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
 			</div>
 			<!--
             	时间：2015-12-30
@@ -117,10 +138,10 @@
 			</div>
 			<c:forEach items="${pageBean.data }" var="product">
 				<div class="col-md-2">
-					<a href="product_info.htm">
+					<a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}">
 						<img src="${pageContext.request.contextPath }/${product.pimage }" width="170" height="170" style="display: inline-block;">
 					</a>
-					<p><a href="product_info.html" style='color:green'>${product.pname}</a></p>
+					<p><a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}" style='color:green'>${product.pname}</a></p>
 					<p><font color="#FF0000">商城价：&yen;${product.shop_price}</font></p>
 				</div>
 			</c:forEach>

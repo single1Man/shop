@@ -14,4 +14,13 @@ public class userService {
         return userDao.register(user);
     }
 
+    public StringBuilder findCoupon_ids(String username) {
+        StringBuilder coupon_ids=new StringBuilder();
+        coupon_ids.append("(");
+        for (Object coupon_id : userDao.findCoupon_ids(username)) {
+            coupon_ids.append(coupon_id);
+        }
+        coupon_ids.append(")");
+        return coupon_ids;
+    }
 }

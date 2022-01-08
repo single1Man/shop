@@ -1,6 +1,7 @@
 package com.servlet;
 
 import com.pojo.User;
+import com.service.couponService;
 import com.service.userService;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ public class loginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String rememberUsername=request.getParameter("rememberUsername");
         userService userService = new userService();
+        couponService couponService = new couponService();
         User user = userService.findUserByUsername(username);
         if (user != null) {
             if (password.equals(user.getPassword())) {
@@ -37,6 +39,8 @@ public class loginServlet extends HttpServlet {
                 }
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
+                StringBuilder coupon_ids = userService.findCoupon_ids(username);
+                session.setAttribute("coupons",couponService.findCoupons(coupon_ids));
                 response.sendRedirect("product_list.jsp");
             } else {
                 request.setAttribute("passwordError", "密码错误");

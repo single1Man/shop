@@ -3,6 +3,7 @@ package com.dao;
 import com.pojo.User;
 import com.utils.JDBCDBCPUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
@@ -29,5 +30,16 @@ public class userDao {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public Object[] findCoupon_ids(String username) {
+        String sql="select coupon_ids from user where username=?";
+        Object[] coupon_ids=null;
+        try {
+            coupon_ids = qr.query(sql, new ArrayHandler(), username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return coupon_ids;
     }
 }

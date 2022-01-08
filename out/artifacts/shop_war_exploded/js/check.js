@@ -1,10 +1,11 @@
 //用户名检查
-var checkUsernameFlag;
-var checkPasswordFlag;
-var checkConfirmPasswordFlag;
-var checkPhoneFlag;
-var checkEmailFlag;
-var  checkNameFlag;
+let checkUsernameFlag;
+let checkPasswordFlag;
+let checkConfirmPasswordFlag;
+let checkPhoneFlag;
+let checkEmailFlag;
+let checkNameFlag;
+
 function checkUsername(){
     checkUsernameFlag=false;
     const username = document.getElementById("username");

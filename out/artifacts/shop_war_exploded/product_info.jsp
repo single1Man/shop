@@ -1,22 +1,20 @@
-﻿<!doctype html>
+﻿<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>会员登录</title>
+		<title>商品详情</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript"></script>
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
-
-		<style>
+		<style type="text/css">
 			body {
 				margin-top: 20px;
-				margin: 0 auto;
 			}
-			
 			.carousel-inner .item img {
 				width: 100%;
 				height: 300px;
@@ -26,7 +24,6 @@
 
 	<body>
 
-		
 			<!--
             	时间：2015-12-30
             	描述：菜单栏
@@ -40,9 +37,18 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.jsp">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
+						<c:if test="${user!=null}">
+							<li><p>欢迎${user.username}
+							</p></li>
+							<li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
+							<li><a href="cart.htm">购物车</a></li>
+							<li><a href="favorite.jsp">商品收藏夹</a></li>
+						</c:if>
+						<c:if test="${user==null}">
+							<li><a href="login.jsp">登录</a></li>
+							<li><a href="register.jsp">注册</a></li>
+							<li><a href="cart.htm">购物车</a></li>
+						</c:if>
 					</ol>
 				</div>
 			</div>
@@ -90,37 +96,44 @@
 		<div class="container">
 			<div class="row">
 				<div style="border: 1px solid #e4e4e4;width:930px;margin-bottom:10px;margin:0 auto;padding:10px;margin-bottom:10px;">
-					<a href="./index.htm">首页&nbsp;&nbsp;&gt;</a>
+					<a href="./index.jsp">首页&nbsp;&nbsp;&gt;</a>
 					<a href="./蔬菜分类.htm">蔬菜&nbsp;&nbsp;&gt;</a>
 					<a>无公害蔬菜</a>
 				</div>
 
 				<div style="margin:0 auto;width:950px;">
 					<div class="col-md-6">
-						<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="image/r___________renleipic_01/bigPic5f3622b8-028a-4e62-a77f-f41a16d715ed.jpg">
+						<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="${pageContext.request.contextPath }/${product.pimage}">
 					</div>
 
 					<div class="col-md-6">
-						<div><strong>大冬瓜</strong></div>
+						<div><strong>${product.pname}</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
-							<div>编号：751</div>
+							<div>编号：${product.pid}</div>
 						</div>
 
-						<div style="margin:10px 0 10px 0;">亿家价: <strong style="color:#ef0101;">￥：4.78元/份</strong> 参 考 价： <del>￥6.00元/份</del>
+						<div style="margin:10px 0 10px 0;">商场价: <strong style="color:#ef0101;">￥：${product.shop_price}</strong> 市场价价： <del>￥${product.market_price}</del>
 						</div>
 
 						<div style="margin:10px 0 10px 0;">促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)" style="background-color: #f07373;">限时抢购</a> </div>
 
 						<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
 							<div style="margin:5px 0 10px 0;">白色</div>
-
 							<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
 								<input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text"> </div>
-
 							<div style="margin:20px 0 10px 0;;text-align: center;">
 								<a href="cart.htm">
 									<input style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
-								</a> &nbsp;收藏商品</div>
+								</a> &nbsp;
+									<c:if test="${msg==null}">
+										<a href="${pageContext.request.contextPath}/scProductServlet?pid=${product.pid}&username=${user.username}&str=add">
+										收藏商品</a>
+									</c:if>
+								<c:if test="${msg!=null}">
+									<a href="${pageContext.request.contextPath}/scProductServlet?pid=${product.pid}&username=${user.username}&str=delete">
+										取消收藏</a>
+								</c:if>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -131,7 +144,7 @@
 					</div>
 
 					<div>
-						<img src="image/r___________renleipic_01/bigPic139f030b-d68b-41dd-be6d-b94cc568d3c5.jpg">
+						<img style="height: 500px;width: 930px" src="${pageContext.request.contextPath }/${product.pimage }">
 					</div>
 
 					<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
@@ -140,20 +153,8 @@
 					<div style="margin-top:10px;width:900px;">
 						<table class="table table-bordered">
 							<tbody>
-								<tr class="active">
-									<th colspan="2">基本参数</th>
-								</tr>
 								<tr>
-									<th width="10%">级别</th>
-									<td width="30%">标准</td>
-								</tr>
-								<tr>
-									<th width="10%">标重</th>
-									<td>500</td>
-								</tr>
-								<tr>
-									<th width="10%">浮动</th>
-									<td>200</td>
+									<a>${product.pdesc}</a>
 								</tr>
 							</tbody>
 						</table>
@@ -166,7 +167,15 @@
 									<th><strong>商品评论</strong></th>
 								</tr>
 								<tr class="warning">
-									<th>暂无商品评论信息 <a>[发表商品评论]</a></th>
+									<th>暂无商品评论信息
+										<c:if test="${user==null}">
+											<a href="login.jsp">[发表商品评论]</a>
+										</c:if>
+										<c:if test="${user!=null}">
+											<button type="button" id="clickpl">[发表商品评论]</button>
+												<div id="opts"></div>
+										</c:if>
+									</th>
 								</tr>
 							</tbody>
 						</table>
@@ -211,5 +220,31 @@
 		</div>
 
 	</body>
-
+	<script type="text/javascript">
+		$("#clickpl").click(function() {
+			var htm = "";
+			htm += "    <div class='row'>";
+			htm += "    <div class='form-group'>";
+			htm += "    <div class='col-md-4 col-sm-4  col-xs-4'>";
+			htm += "    <input type='text' class='form-control number' placeholder='请输入评论' name='content'>";
+			htm += "    </div></div>";
+			htm += "</div>";
+			$('#opts').append(htm);
+		});
+		$('#content').blur(function(){
+			$.ajax( {
+				url:'commentServlet',
+				data:{
+					username : ${user.username},
+					pid:${product.pid},
+					content : $(this).val()
+				},
+				type:'post',
+				success:function(data) {
+					console.log(1);
+					console.log(data);
+				}
+			});
+		})
+	</script>
 </html>
