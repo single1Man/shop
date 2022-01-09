@@ -41,7 +41,6 @@ public class commentServlet extends HttpServlet {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        System.out.println(comments);
         response.getWriter().write(comments.toString());
 
     }

@@ -117,7 +117,11 @@
 								</div>
 								<div class="navbar-form navbar-right" role="search">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Search" name="pname">
+										<input type="text" class="form-control" placeholder="Search" name="pname" id="search">
+									</div>
+									<div id="wordShow">
+										<ul id="itemul" class="list-group">
+										</ul>
 									</div>
 									<button type="submit" class="btn btn-default">Submit</button>
 								</div>
@@ -232,5 +236,5 @@
 		</div>
 
 	</body>
-
+<script type="text/javascript" src="js/yibu.js"></script>
 </html>

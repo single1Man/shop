@@ -74,4 +74,8 @@ public class productService {
         pageBean.setData(data);
         return pageBean;
     }
+    public List<Product> findallByWordPname(String word) {
+        // TODO Auto-generated method stub
+        return productDao.findallByWordPname(word);
+    }
 }

@@ -19,6 +19,9 @@
           <element id="file-copy" path="$PROJECT_DIR$/../../培训班029/软件安装包/apache-tomcat-7.0.90/lib/servlet-api.jar" />
           <element id="library" level="project" name="java-json" />
           <element id="library" level="project" name="json-simple-1.1" />
+          <element id="library" level="project" name="json-lib-2.4-jdk15" />
+          <element id="library" level="project" name="ezmorph-1.0.6" />
+          <element id="library" level="project" name="commons-lang-2.5" />
         </element>
       </element>
     </root>

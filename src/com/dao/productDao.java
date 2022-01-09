@@ -113,4 +113,14 @@ public class productDao {
         }
         return count.intValue();
     }
+    public List<Product> findallByWordPname(String word) {
+        String sql="select *from product where  pname like ? " ;
+        List<Product> list =null;
+        try {
+            list = qr.query(sql, new BeanListHandler<Product>(Product.class),"%"+word+"%");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  list;
+    }
 }

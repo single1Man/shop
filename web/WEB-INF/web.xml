@@ -173,4 +173,13 @@
         <servlet-name>deleteCollectServlet</servlet-name>
         <url-pattern>/deleteCollectServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>WordPnameServlet</servlet-name>
+        <servlet-class>com.servlet.WordPnameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WordPnameServlet</servlet-name>
+        <url-pattern>/WordPnameServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

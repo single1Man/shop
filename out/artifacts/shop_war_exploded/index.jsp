@@ -6,8 +6,10 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>shop</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="js/bootstrap.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			const list = "${allCategory}";
@@ -77,7 +79,11 @@
 								</div>
 								<div class="navbar-form navbar-right" role="search" >
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Search" name="pname">
+										<input type="text" class="form-control" placeholder="Search" name="pname" id="search">
+										<div id="wordShow">
+											<ul id="itemul" class="list-group">
+											</ul>
+										</div>
 									</div>
 									<button type="submit" class="btn btn-default">Submit</button>
 								</div>
@@ -355,5 +361,5 @@
 			</div>
 		</div>
 	</body>
-
+	<script type="text/javascript" src="js/yibu.js"></script>
 </html>
