@@ -22,4 +22,11 @@ public class collectService {
     public List<Collect> findCollectsByUsername(String username) {
         return collectDao.findCollectsByUsername(username);
     }
+
+    public int findCollect(String username, String pid) {
+        if (collectDao.findCollect(username,pid)!=null){
+            return 1;
+        }
+        return 0;
+    }
 }

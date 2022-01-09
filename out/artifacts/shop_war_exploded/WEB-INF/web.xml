@@ -124,14 +124,6 @@
         <url-pattern>/toProductInfoServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>scProductServlet</servlet-name>
-        <servlet-class>com.servlet.scProductServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>scProductServlet</servlet-name>
-        <url-pattern>/scProductServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>findCollectsByUsernameServlet</servlet-name>
         <servlet-class>com.servlet.findCollectsByUsernameServlet</servlet-class>
     </servlet>
@@ -147,5 +139,38 @@
         <servlet-name>commentServlet</servlet-name>
         <url-pattern>/commentServlet</url-pattern>
     </servlet-mapping>
-
+    <filter>
+        <display-name>AutoLoginFilter</display-name>
+        <filter-name>AutoLoginFilter</filter-name>
+        <filter-class>com.filter.AutoLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutoLoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <display-name>AutoLoginFilter1</display-name>
+        <filter-name>AutoLoginFilter1</filter-name>
+        <filter-class>com.filter.AutoLoginFilter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutoLoginFilter1</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>addCollectServlet</servlet-name>
+        <servlet-class>com.servlet.addCollectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addCollectServlet</servlet-name>
+        <url-pattern>/addCollectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>deleteCollectServlet</servlet-name>
+        <servlet-class>com.servlet.deleteCollectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteCollectServlet</servlet-name>
+        <url-pattern>/deleteCollectServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

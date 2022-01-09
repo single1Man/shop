@@ -10,23 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class toProductInfoServlet extends HttpServlet {
+public class addCollectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
-        String pid=request.getParameter("pid");
-        String username=request.getParameter("username");
+        String username = request.getParameter("username");
+        String pid = request.getParameter("pid");
         collectService collectService=new collectService();
+        collectService.addCollect(username,pid);
         int isCollected = collectService.findCollect(username, pid);
-        productService productService = new productService();
-        Product product = productService.findProductByPid(pid);
-        request.setAttribute("product",product);
         if (isCollected==0){
             request.setAttribute("isCollected",null);
         }else {
             request.setAttribute("isCollected","notNull");
         }
+        productService productService = new productService();
+        Product product = productService.findProductByPid(pid);
+        request.setAttribute("product",product);
         request.getRequestDispatcher("/product_info.jsp").forward(request,response);
     }
 

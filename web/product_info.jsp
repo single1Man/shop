@@ -125,13 +125,11 @@
 								<a href="cart.htm">
 									<input style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
 								</a> &nbsp;
-									<c:if test="${msg==null}">
-										<a href="${pageContext.request.contextPath}/scProductServlet?pid=${product.pid}&username=${user.username}&str=add">
-										收藏商品</a>
-									</c:if>
-								<c:if test="${msg!=null}">
-									<a href="${pageContext.request.contextPath}/scProductServlet?pid=${product.pid}&username=${user.username}&str=delete">
-										取消收藏</a>
+								<c:if test="${isCollected==null}">
+									<a href="${pageContext.request.contextPath }/addCollectServlet?username=${user.username}&pid=${product.pid}">收藏商品</a>
+								</c:if>
+								<c:if test="${isCollected!=null}">
+									<a href="${pageContext.request.contextPath }/deleteCollectServlet?username=${user.username}&pid=${product.pid}">取消商品</a>
 								</c:if>
 							</div>
 						</div>
@@ -174,6 +172,7 @@
 										<c:if test="${user!=null}">
 											<button type="button" id="clickpl">[发表商品评论]</button>
 												<div id="opts"></div>
+												<div id="showContent"></div>
 										</c:if>
 									</th>
 								</tr>
@@ -220,31 +219,54 @@
 		</div>
 
 	</body>
-	<script type="text/javascript">
+	<script type="module">
+		import reg from '/js/gl.js';
 		$("#clickpl").click(function() {
 			var htm = "";
 			htm += "    <div class='row'>";
 			htm += "    <div class='form-group'>";
 			htm += "    <div class='col-md-4 col-sm-4  col-xs-4'>";
-			htm += "    <input type='text' class='form-control number' placeholder='请输入评论' name='content'>";
+			htm += "    <input type='text' class='form-control number' placeholder='请输入评论' name='content' id='ajaxContent'>";
 			htm += "    </div></div>";
 			htm += "</div>";
 			$('#opts').append(htm);
+            $('#ajaxContent').blur(function(){
+                $.ajax( {
+                    url:'commentServlet?username=${user.username}&pid=${product.pid}',
+                    dataType : "json",
+                    data:{
+                        content : $(this).val()
+                    },
+                    type:'post',
+                    success:function(data,textStatus) {
+						var objs=eval(data);
+						var bd="";
+						bd+="<table border='2'>";
+						bd+="<tr></tr>";
+						bd+="<tr>";
+						bd+="<th>评论人</th>";
+						for (let i=0;i<objs.length;i++){
+							bd+="<th>"+objs[i].username+"</th>";
+						}
+						bd+="<tr></tr>";
+						bd+="<tr>";
+						bd+="<th>评论内容</th>";
+						for (let i=0;i<objs.length;i++){
+							objs[i].content=objs[i].content.replace(reg.reg,"***")
+							bd+="<th>"+objs[i].content+"</th>";
+						}
+						bd+="<tr></tr>";
+						bd+="<tr>";
+						bd+="<th>评论时间</th>";
+						for (let i=0;i<objs.length;i++){
+							bd+="<th>"+objs[i].date+"</th>";
+						}
+						bd+="<tr></tr>";
+						bd+="</table>";
+						$('#showContent').append(bd);
+                    }
+                });
+            })
 		});
-		$('#content').blur(function(){
-			$.ajax( {
-				url:'commentServlet',
-				data:{
-					username : ${user.username},
-					pid:${product.pid},
-					content : $(this).val()
-				},
-				type:'post',
-				success:function(data) {
-					console.log(1);
-					console.log(data);
-				}
-			});
-		})
 	</script>
 </html>

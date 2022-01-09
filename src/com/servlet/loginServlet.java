@@ -28,7 +28,7 @@ public class loginServlet extends HttpServlet {
                     //使用cookie记录用户信息,使用@拼凑
                     Cookie c=new Cookie("autoLoginCookie",username+"@"+password);
                     c.setPath("/");
-                    c.setMaxAge(30);
+                    c.setMaxAge(60);
                     response.addCookie(c);
                 }
                 if ("on".equals(rememberUsername)){

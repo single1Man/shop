@@ -3,6 +3,7 @@ package com.dao;
 import com.pojo.Collect;
 import com.utils.JDBCDBCPUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -41,5 +42,16 @@ public class collectDao {
             e.printStackTrace();
         }
         return collects;
+    }
+
+    public Collect findCollect(String username, String pid) {
+        String sql="select * from collect where username=? and productPid=?";
+        Collect collect=null;
+        try {
+            collect = qr.query(sql, new BeanHandler<>(Collect.class),username,pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return collect;
     }
 }

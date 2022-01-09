@@ -17,6 +17,8 @@
           <element id="library" level="project" name="jstl" />
           <element id="library" level="project" name="mysql-connector-java-8.0.11" />
           <element id="file-copy" path="$PROJECT_DIR$/../../培训班029/软件安装包/apache-tomcat-7.0.90/lib/servlet-api.jar" />
+          <element id="library" level="project" name="java-json" />
+          <element id="library" level="project" name="json-simple-1.1" />
         </element>
       </element>
     </root>

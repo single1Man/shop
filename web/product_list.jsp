@@ -138,10 +138,10 @@
 			</div>
 			<c:forEach items="${pageBean.data }" var="product">
 				<div class="col-md-2">
-					<a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}">
+					<a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${user.username}">
 						<img src="${pageContext.request.contextPath }/${product.pimage }" width="170" height="170" style="display: inline-block;">
 					</a>
-					<p><a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}" style='color:green'>${product.pname}</a></p>
+					<p><a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${user.username}" style='color:green'>${product.pname}</a></p>
 					<p><font color="#FF0000">商城价：&yen;${product.shop_price}</font></p>
 				</div>
 			</c:forEach>
