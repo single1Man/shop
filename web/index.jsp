@@ -80,7 +80,7 @@
 								<div class="navbar-form navbar-right" role="search" >
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Search" name="pname" id="search">
-										<div id="wordShow">
+										<div id="wordShow" style="display: flex">
 											<ul id="itemul" class="list-group">
 											</ul>
 										</div>

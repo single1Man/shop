@@ -253,28 +253,20 @@
 						var objs=eval(data);
 						var bd="";
 						bd+="<table border='2'>";
-						bd+="<tr></tr>";
 						bd+="<tr>";
-						bd+="<th>评论人</th>";
+						bd+="<td>评论人</td>";
+						bd+="<td>评论内容</td>";
+						bd+="<td>评论时间</td>";
+						bd+="</tr>";
 						for (let i=0;i<objs.length;i++){
-							bd+="<th>"+objs[i].username+"</th>";
+							bd+="<tr>";
+							bd+="<td>"+objs[i].username+"</td>";
+							bd+="<td>"+objs[i].content.replace(reg.reg,"***")+"</td>";
+							bd+="<td>"+objs[i].date+"</td>";
+							bd+="</tr>";
 						}
-						bd+="<tr></tr>";
-						bd+="<tr>";
-						bd+="<th>评论内容</th>";
-						for (let i=0;i<objs.length;i++){
-							objs[i].content=objs[i].content.replace(reg.reg,"***")
-							bd+="<th>"+objs[i].content+"</th>";
-						}
-						bd+="<tr></tr>";
-						bd+="<tr>";
-						bd+="<th>评论时间</th>";
-						for (let i=0;i<objs.length;i++){
-							bd+="<th>"+objs[i].date+"</th>";
-						}
-						bd+="<tr></tr>";
 						bd+="</table>";
-						$('#showContent').append(bd);
+						$('#showContent').html(bd);
                     }
                 });
             })
