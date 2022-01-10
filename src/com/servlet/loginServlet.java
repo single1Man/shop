@@ -15,6 +15,7 @@ public class loginServlet extends HttpServlet {
         response.setContentType("text/html:charset=utf-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username+" "+password);
         String rememberUsername=request.getParameter("rememberUsername");
         userService userService = new userService();
         couponService couponService = new couponService();
@@ -28,17 +29,17 @@ public class loginServlet extends HttpServlet {
                     //使用cookie记录用户信息,使用@拼凑
                     Cookie c=new Cookie("autoLoginCookie",username+"@"+password);
                     c.setPath("/");
-                    c.setMaxAge(60);
+                    c.setMaxAge(1800);
                     response.addCookie(c);
                 }
                 if ("on".equals(rememberUsername)){
                     Cookie rememberUsernameCookie=new Cookie("rememberUsernameCookie",username);
                     rememberUsernameCookie.setPath("/");
-                    rememberUsernameCookie.setMaxAge(30);
+                    rememberUsernameCookie.setMaxAge(1800);
                     response.addCookie(rememberUsernameCookie);
                 }
                 HttpSession session = request.getSession();
-                session.setAttribute("user", user);
+                session.setAttribute("username", user.getUsername());
                 StringBuilder coupon_ids = userService.findCoupon_ids(username);
                 session.setAttribute("coupons",couponService.findCoupons(coupon_ids));
                 response.sendRedirect("product_list.jsp");

@@ -37,14 +37,14 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<c:if test="${user!=null}">
-							<li><p>欢迎${user.username}
+						<c:if test="${username!=null}">
+							<li><p>欢迎${username}
 							</p></li>
 							<li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
 							<li><a href="cart.htm">购物车</a></li>
 							<li><a href="favorite.jsp">商品收藏夹</a></li>
 						</c:if>
-						<c:if test="${user==null}">
+						<c:if test="${username==null}">
 							<li><a href="login.jsp">登录</a></li>
 							<li><a href="register.jsp">注册</a></li>
 							<li><a href="cart.htm">购物车</a></li>
@@ -126,10 +126,21 @@
 									<input style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
 								</a> &nbsp;
 								<c:if test="${isCollected==null}">
-									<a href="${pageContext.request.contextPath }/addCollectServlet?username=${user.username}&pid=${product.pid}">收藏商品</a>
+                                    <c:if test="${username!=null}">
+                                        <a href="${pageContext.request.contextPath }/addCollectServlet?username=${username}&pid=${product.pid}">收藏商品</a>
+                                    </c:if>
+                                    <c:if test="${username==null}">
+                                        <a href="login.jsp">请登陆后,收藏商品</a>
+                                    </c:if>
 								</c:if>
 								<c:if test="${isCollected!=null}">
-									<a href="${pageContext.request.contextPath }/deleteCollectServlet?username=${user.username}&pid=${product.pid}">取消商品</a>
+                                    <c:if test="${username==null}">
+                                        <a href="login.jsp">请登陆</a>
+                                    </c:if>
+                                    <c:if test="${username!=null}">
+                                        <a href="${pageContext.request.contextPath }/deleteCollectServlet?username=${username}&pid=${product.pid}">取消收藏</a>
+                                    </c:if>
+
 								</c:if>
 							</div>
 						</div>
@@ -166,10 +177,10 @@
 								</tr>
 								<tr class="warning">
 									<th>暂无商品评论信息
-										<c:if test="${user==null}">
-											<a href="login.jsp">[发表商品评论]</a>
+										<c:if test="${username==null}">
+											<a href="login.jsp">[请登陆后,发表商品评论]</a>
 										</c:if>
-										<c:if test="${user!=null}">
+										<c:if test="${username!=null}">
 											<button type="button" id="clickpl">[发表商品评论]</button>
 												<div id="opts"></div>
 												<div id="showContent"></div>
@@ -232,7 +243,7 @@
 			$('#opts').append(htm);
             $('#ajaxContent').blur(function(){
                 $.ajax( {
-                    url:'commentServlet?username=${user.username}&pid=${product.pid}',
+                    url:'commentServlet?username=${username}&pid=${product.pid}',
                     dataType : "json",
                     data:{
                         content : $(this).val()

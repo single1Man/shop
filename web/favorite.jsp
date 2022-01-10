@@ -14,7 +14,7 @@
     <script type="text/javascript">
         const list = "${collects}";
         if(list.length===0){
-            location.href="${pageContext.request.contextPath}/findCollectsByUsernameServlet?username=${user.username}";
+            location.href="${pageContext.request.contextPath}/findCollectsByUsernameServlet?username=${username}";
         }
     </script>
     <style type="text/css">
@@ -30,14 +30,14 @@
 <body>
 <div class="col-md-3" style="padding-top:20px">
     <ol class="list-inline">
-        <c:if test="${user!=null}">
-            <li><p>欢迎${user.username}
+        <c:if test="${username!=null}">
+            <li><p>欢迎${username}
             </p></li>
             <li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
             <li><a href="cart.htm">购物车</a></li>
             <li><a href="product_list.jsp">首页</a></li>
         </c:if>
-        <c:if test="${user==null}">
+        <c:if test="${username==null}">
             <li><a href="login.jsp">登录</a></li>
             <li><a href="register.jsp">注册</a></li>
             <li><a href="cart.htm">购物车</a></li>

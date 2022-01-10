@@ -1,5 +1,8 @@
 package com.filter;
 
+import com.pojo.User;
+import com.service.userService;
+
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -54,10 +57,11 @@ public class AutoLoginFilter1 implements Filter {
             chain.doFilter(request, response);
             return;
         }
+        assert userCookie != null;
         String usernamec = userCookie.getValue();
-
-
-        req.getSession().setAttribute("username", usernamec);
+        userService userService=new userService();
+        User user = userService.findUserByUsername(usernamec);
+        req.getSession().setAttribute("username", user.getUsername());
         // pass the request along the filter chain
         chain.doFilter(request, response);
     }

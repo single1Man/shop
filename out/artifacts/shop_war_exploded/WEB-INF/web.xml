@@ -100,6 +100,14 @@
         <url-pattern>/conditionQueryServlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>conditionQueryServlet2</servlet-name>
+        <servlet-class>com.servlet.conditionQueryServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>conditionQueryServlet2</servlet-name>
+        <url-pattern>/conditionQueryServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>findAllCategoryServlet</servlet-name>
         <servlet-class>com.servlet.findAllCategoryServlet</servlet-class>
     </servlet>

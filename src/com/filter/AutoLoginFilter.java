@@ -41,7 +41,7 @@ public class AutoLoginFilter implements Filter {
                 }
             }
         }
-        //判断自动登陆cookie是否存在,如果没有cokkie ,不需要自动登陆
+        //判断自动登陆cookie是否存在,如果没有cookie ,不需要自动登陆
         if(userCookie==null){
             chain.doFilter(request, response);
             return;
@@ -59,7 +59,7 @@ public class AutoLoginFilter implements Filter {
             return;
         }
         //自动登陆
-        req.getSession().setAttribute("user", user);
+        req.getSession().setAttribute("username", user.getUsername());
         // pass the request along the filter chain
         chain.doFilter(request, response);
     }

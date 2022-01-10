@@ -17,11 +17,20 @@ $("#search").keyup(function(){
                     var str = product.pname;
                     str=highlight(word,str);
                     //<li class="list-group-item">HTC Desire 826d 32G 臻珠白</li>
-                    htm+="<li class='list-group-item'>"+str+"</li>";
+                    htm+="<li class='list-group-item' style='cursor: pointer' id="+i+">"+str+"</li>";
                     // $("#itemul").append("<li class='list-group-item'>"+str+"</li>")
                 }
                 $("#itemul").html(htm);
                 $("#wordShow").show();
+                for (let i=0;i<data.length;i++){
+                    let search=document.getElementById("search");
+                    let li=document.getElementById(""+i);
+                    $("#"+i).click(function (){
+                        console.log($(li).text());
+                        search.value=$(li).text();
+                        location.href="conditionQueryServlet2?pname="+$(li).text();
+                    });
+                }
             }
         });
     }else {

@@ -44,14 +44,14 @@
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
-						<c:if test="${user!=null}">
-							<li><p>欢迎${user.username}
+						<c:if test="${username!=null}">
+							<li><p>欢迎${username}
 							</p></li>
 							<li><a href="${pageContext.request.contextPath}/loginOutServlet">退出登录</a></li>
 							<li><a href="cart.htm">购物车</a></li>
-							<button data-toggle="modal" data-target="#myModal">${user.username}的优惠卷</button>
+							<button data-toggle="modal" data-target="#myModal">${username}的优惠卷</button>
 						</c:if>
-						<c:if test="${user==null}">
+						<c:if test="${username==null}">
 							<li><a href="login.jsp">登录</a></li>
 							<li><a href="register.jsp">注册</a></li>
 							<li><a href="cart.htm">购物车</a></li>
@@ -142,10 +142,10 @@
 			</div>
 			<c:forEach items="${pageBean.data }" var="product">
 				<div class="col-md-2">
-					<a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${user.username}">
+					<a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${username}">
 						<img src="${pageContext.request.contextPath }/${product.pimage }" width="170" height="170" style="display: inline-block;">
 					</a>
-					<p><a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${user.username}" style='color:green'>${product.pname}</a></p>
+					<p><a href="${pageContext.request.contextPath }/toProductInfoServlet?pid=${product.pid}&username=${username}" style='color:green'>${product.pname}</a></p>
 					<p><font color="#FF0000">商城价：&yen;${product.shop_price}</font></p>
 				</div>
 			</c:forEach>
