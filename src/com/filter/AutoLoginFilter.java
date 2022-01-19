@@ -6,11 +6,10 @@ import com.service.userService;
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AutoLoginFilter implements Filter {
-    public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) {
     }
 
     public void destroy() {
@@ -22,7 +21,6 @@ public class AutoLoginFilter implements Filter {
         // place your code here
         //强制
         HttpServletRequest req=(HttpServletRequest) request;
-        HttpServletResponse rep=(HttpServletResponse) response;
         //用户登录的信息
         String username = (String) req.getSession().getAttribute("username");
         //如果已经登陆 ,放行,不需要自动登陆
